@@ -1,0 +1,82 @@
+﻿@page "/"
+@inject IJSRuntime JsRuntime;
+
+<PageTitle>Tap Counter</PageTitle>
+
+<div class="box">
+    <div class="container" style="@(_maxCount == 0 || _currentCount < _maxCount ? "border: 1px solid #d2d2d2;" : "border: 1px solid red;")">
+        <!-- Count display and Increment div -->
+        <div class="row" style="height: 70vh;" @onclick="IncrementCount">
+            <div class="col" style="display: grid; place-items: center;">
+                <strong style="font-size: xxx-large; @(_maxCount == 0 || _currentCount < _maxCount ? "color: black" : "color: red");" 
+                        role="status">@_currentCount</strong>
+            </div>
+        </div>
+
+        <!-- Line Separator -->
+        <hr/>
+
+        <!-- Bottom Page Row -->
+        <div class="row" style="height: 10vh;">
+            <!-- Alert At -->
+            <div class="col" style="display: grid; place-items: center;">
+                <p class="header-display">Alert at</p>
+                <input type="number" class="form-control data-display" @bind-value="@_maxCount">
+                <br/>
+            </div>
+
+            <!-- Reset button -->
+            <div class="col" style="display: grid; place-items: center;">
+                <p class="header-display"></p>
+                <button class="btn btn-warning" @onclick="Reset">Reset</button>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<audio id="button_click" src="/button_click.mp3"></audio>
+
+@if (_currentCount != 0 && _maxCount == _currentCount)
+{
+    <audio autoplay id="alert" src="/alert.wav"></audio>
+}
+
+@code {
+    private int _currentCount;
+    private int _maxCount;
+
+    private async Task IncrementCount()
+    {
+        if (_maxCount == 0 || _maxCount > _currentCount)
+        {
+            _currentCount++;
+            await PlaySound("button_click");
+        }
+    }
+
+    private void Reset()
+    {
+        _currentCount = 0;
+    }
+    
+    public async Task PlaySound(string audioId)
+    {
+        await JsRuntime.InvokeAsync<string>("PlayAudio", "button_click");
+    }
+
+}
+
+<style>
+    .data-display {
+        color: black;
+        text-align: center;
+        display: block;
+    }
+
+    .header-display {
+        color: black;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
