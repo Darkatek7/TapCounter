@@ -7,7 +7,7 @@
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-        <AssemblyName>$(MSBuildProjectName))</AssemblyName>
+        <AssemblyName>$(MSBuildProjectName)</AssemblyName>
         <ApplicationIcon>wwwroot\favicon.ico</ApplicationIcon>
         <SignAssembly>False</SignAssembly>
         <ErrorReport>prompt</ErrorReport>
