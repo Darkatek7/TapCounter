@@ -1,8 +1,8 @@
-  GNU nano 5.4                                                                                                                                                                         docker-compose.yml *                                                                                                                                                                                 
+  GNU nano 5.4                                                                                                                                                                         docker-compose.yml                                                                                                                                                                                   
+---
 version: '3.4'
-
 services:
-  client:
+  tapcounter:
     image: tapcounter
     build:
       context: ./TapCounter.Web/
