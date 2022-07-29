@@ -1,0 +1,12 @@
+  GNU nano 5.4                                                                                                                                                                         docker-compose.yml *                                                                                                                                                                                 
+version: '3.4'
+
+services:
+  client:
+    image: tapcounter
+    build:
+      context: ./TapCounter.Web/
+      dockerfile: ./Dockerfile
+    ports:
+      - 8070:80
+    restart: unless-stopped
