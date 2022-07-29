@@ -1,12 +1,9 @@
-  GNU nano 5.4                                                                                                                                                                         docker-compose.yml                                                                                                                                                                                   
 ---
 version: '3.4'
 services:
   tapcounter:
-    image: tapcounter
-    build:
-      context: ./TapCounter.Web/
-      dockerfile: ./Dockerfile
+    container_name: tapcounter
+    image: darkatek7/tapcounter               # docker image
     ports:
-      - 8070:80
-    restart: unless-stopped
+      - 8070:80                               # port used for localhost ip
+    restart: unless-stopped                   # restart policy
