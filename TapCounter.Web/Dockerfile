@@ -1,7 +1,7 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY TapCounter.Web.csproj .
-RUN dotnet restore BlazorWasmWithDocker.csproj
+RUN dotnet restore TapCounter.Web.csproj
 COPY . .
 RUN dotnet build TapCounter.Web.csproj -c Release -o /app/build
 
