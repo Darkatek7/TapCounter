@@ -28,4 +28,4 @@ jobs:
           context: "{{defaultContext}}:TapCounter.Web"
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: darkatek7/tapcounter:amd64
+          tags: darkatek7/tapcounter:latest
