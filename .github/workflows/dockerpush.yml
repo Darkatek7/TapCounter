@@ -1,4 +1,4 @@
-name: ci
+name: dockerpushamd64
 
 on:
   push:
@@ -27,4 +27,4 @@ jobs:
         with:
           context: "{{defaultContext}}:TapCounter.Web"
           push: true
-          tags: darkatek7/tapcounter:latest
+          tags: darkatek7/tapcounter:amd64
