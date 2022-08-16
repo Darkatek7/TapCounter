@@ -1,4 +1,4 @@
-name: dockerpushamd64
+name: dockerpush
 
 on:
   push:
@@ -26,5 +26,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: "{{defaultContext}}:TapCounter.Web"
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: darkatek7/tapcounter:amd64
