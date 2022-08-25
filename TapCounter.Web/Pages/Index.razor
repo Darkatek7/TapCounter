@@ -8,7 +8,7 @@
         <!-- Count display and Increment div -->
         <div class="row" style="height: 70vh;" @onclick="IncrementCount">
             <div class="col" style="display: grid; place-items: center;">
-                <strong style="font-size: xxx-large; @(_maxCount == 0 || _currentCount < _maxCount ? "color: black" : "color: red");" 
+                <strong class="prevent-select" style="font-size: xxx-large; @(_maxCount == 0 || _currentCount < _maxCount ? "color: black" : "color: red");" 
                         role="status">@_currentCount</strong>
             </div>
         </div>
@@ -78,5 +78,11 @@
         color: black;
         font-weight: bold;
         text-align: center;
+    }
+    
+    .prevent-select {
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
     }
 </style>
